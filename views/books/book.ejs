@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <% include ../partials/head %>
+</head>
+<style>
+  .img-responsive {
+    margin: 0 auto;
+  }
+</style>
+<body>
+
+  <% include ../partials/nav %>
+
+  <div class="container-fluid">
+
+    <div class="row">
+
+      <div class="col-sm-4 col-sm-offset-4">
+
+        <table class="table table-bordered">
+
+          <thead>
+            <tr>
+              <th class="text-center">ID: <%= id %></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% if (img) {%>
+            <tr>
+              <td class="text-center">
+                <img class='img-responsive' src=<%= img %>>
+              </td>
+            </tr>
+            <% } %>
+            <tr>
+              <td class="text-center">
+                Title: <%= title %>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-center">
+                Author: <%= author %>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-center">
+                Year: <%= year %>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-center">
+                <form action='/books/<%=id%>?_method=delete' method="POST">
+                  <a class='btn btn-primary' href='/'>Go Home</a>
+                  <a class="btn btn-success" href="/books/<%=id%>/edit">Edit</a>
+                  <button class="btn btn-danger">Delete</button>
+                </form>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </thead>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>
